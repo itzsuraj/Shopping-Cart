@@ -84,9 +84,9 @@ function App() {
         <CartScreen
           isActive={currentScreen === 'cart'}
           cart={cart}
-          onAddItem={() => addItem(sampleProducts[0])}
+          onAddItem={(product) => addItem(product || sampleProducts[0])}
           onRemoveItem={() => removeItem(cart[0]?.id || 0)}
-          onCheckout={() => navigateTo('summary')}
+          onCheckout={() => navigateTo('payment-options')}
           onBack={() => navigateTo('start')}
         />
         
@@ -100,9 +100,10 @@ function App() {
         
         <PaymentOptionsScreen
           isActive={currentScreen === 'payment-options'}
-          onBack={() => navigateTo('summary')}
+          onBack={() => navigateTo('cart')}
           onUPI={() => navigateTo('scanner')}
           onCard={() => navigateTo('qr-payment')}
+          total={getTotal()}
         />
         
         <ScannerScreen

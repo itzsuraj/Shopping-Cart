@@ -73,7 +73,7 @@ const QRPaymentScreen: React.FC<QRPaymentScreenProps> = ({
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%',
+        height: '100dvh',
         background: 'white',
         display: 'flex',
         flexDirection: 'column',
@@ -87,8 +87,8 @@ const QRPaymentScreen: React.FC<QRPaymentScreenProps> = ({
         <button className="back-btn" onClick={onBack}>
           <ArrowLeft size={20} />
         </button>
-        <div className="logo">SmartMart</div>
-        <div></div>
+        <div className="logo">UPI Payment</div>
+        <div style={{ width: '40px' }}></div>
       </div>
       
       {/* Content */}
@@ -103,14 +103,15 @@ const QRPaymentScreen: React.FC<QRPaymentScreenProps> = ({
         
         {/* Title Section */}
         <div style={{
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          background: '#1a5f3c',
           color: 'white',
           padding: '20px',
           borderRadius: '12px',
           textAlign: 'center',
           marginBottom: '15px',
           maxWidth: '400px',
-          width: '100%'
+          width: '100%',
+          boxShadow: '0 4px 12px rgba(26, 95, 60, 0.3)'
         }}>
           <div style={{ fontSize: '24px', marginBottom: '8px' }}>📱</div>
           <h2 style={{ margin: '0 0 8px 0', fontSize: '18px' }}>UPI Payment</h2>
@@ -122,7 +123,7 @@ const QRPaymentScreen: React.FC<QRPaymentScreenProps> = ({
         {/* QR Code Section */}
         <div style={{
           background: 'white',
-          border: '2px solid #e9ecef',
+          border: '2px solid #e2e8f0',
           borderRadius: '12px',
           padding: '20px',
           marginBottom: '15px',
@@ -134,7 +135,7 @@ const QRPaymentScreen: React.FC<QRPaymentScreenProps> = ({
           {isLoading ? (
             <div style={{ padding: '30px' }}>
               <div style={{ fontSize: '36px', marginBottom: '10px' }}>⏳</div>
-              <p style={{ color: '#6c757d', margin: 0, fontSize: '12px' }}>Generating QR Code...</p>
+              <p style={{ color: '#64748b', margin: 0, fontSize: '12px' }}>Generating QR Code...</p>
             </div>
           ) : qrCode ? (
             <>
@@ -148,29 +149,31 @@ const QRPaymentScreen: React.FC<QRPaymentScreenProps> = ({
                   borderRadius: '8px'
                 }} 
               />
-              <h3 style={{ margin: '0 0 8px 0', color: '#2c3e50', fontSize: '14px' }}>
+              <h3 style={{ margin: '0 0 8px 0', color: '#1e293b', fontSize: '14px' }}>
                 Scan with UPI App
               </h3>
-              <p style={{ margin: 0, color: '#6c757d', fontSize: '11px' }}>
+              <p style={{ margin: 0, color: '#64748b', fontSize: '11px' }}>
                 Use Google Pay, PhonePe, Paytm, or any UPI app
               </p>
             </>
           ) : (
             <div style={{ padding: '30px' }}>
               <div style={{ fontSize: '36px', marginBottom: '10px' }}>❌</div>
-              <p style={{ color: '#dc3545', margin: 0, fontSize: '12px' }}>Failed to generate QR code</p>
+              <p style={{ color: '#dc2626', margin: 0, fontSize: '12px' }}>Failed to generate QR code</p>
             </div>
           )}
         </div>
         
         {/* Payment Details */}
         <div style={{
-          background: '#f8f9fa',
+          background: '#f8fafc',
           borderRadius: '12px',
           padding: '15px',
           marginBottom: '15px',
           maxWidth: '300px',
-          width: '100%'
+          width: '100%',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          border: '1px solid #e2e8f0'
         }}>
           <div style={{
             display: 'flex',
@@ -178,9 +181,9 @@ const QRPaymentScreen: React.FC<QRPaymentScreenProps> = ({
             alignItems: 'center',
             marginBottom: '8px'
           }}>
-            <span style={{ color: '#6c757d', fontSize: '12px' }}>Amount:</span>
-            <span style={{ color: '#2c3e50', fontSize: '16px', fontWeight: 'bold' }}>
-              ₹{(total * 1.18).toFixed(2)}
+            <span style={{ color: '#64748b', fontSize: '12px' }}>Amount:</span>
+            <span style={{ color: '#1e293b', fontSize: '16px', fontWeight: 'bold' }}>
+                              ₹{(total * 1.18).toFixed(2)}
             </span>
           </div>
           <div style={{
@@ -189,8 +192,8 @@ const QRPaymentScreen: React.FC<QRPaymentScreenProps> = ({
             alignItems: 'center',
             marginBottom: '8px'
           }}>
-            <span style={{ color: '#6c757d', fontSize: '12px' }}>Items:</span>
-            <span style={{ color: '#2c3e50', fontSize: '12px' }}>
+            <span style={{ color: '#64748b', fontSize: '12px' }}>Items:</span>
+            <span style={{ color: '#1e293b', fontSize: '12px' }}>
               {cart.reduce((count, item) => count + item.quantity, 0)} items
             </span>
           </div>
@@ -199,9 +202,9 @@ const QRPaymentScreen: React.FC<QRPaymentScreenProps> = ({
             justifyContent: 'space-between',
             alignItems: 'center'
           }}>
-            <span style={{ color: '#6c757d', fontSize: '12px' }}>Time Left:</span>
+            <span style={{ color: '#64748b', fontSize: '12px' }}>Time Left:</span>
             <span style={{ 
-              color: timeLeft < 60 ? '#dc3545' : '#28a745', 
+              color: timeLeft < 60 ? '#dc2626' : '#059669', 
               fontSize: '12px', 
               fontWeight: 'bold' 
             }}>
@@ -223,7 +226,7 @@ const QRPaymentScreen: React.FC<QRPaymentScreenProps> = ({
             style={{
               padding: '12px',
               fontSize: '14px',
-              background: '#6c757d',
+              background: '#64748b',
               color: 'white',
               border: 'none',
               borderRadius: '8px',
@@ -232,7 +235,8 @@ const QRPaymentScreen: React.FC<QRPaymentScreenProps> = ({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '5px'
+              gap: '5px',
+              boxShadow: '0 2px 4px rgba(100, 116, 139, 0.3)'
             }}
           >
             ← Cancel
@@ -243,7 +247,7 @@ const QRPaymentScreen: React.FC<QRPaymentScreenProps> = ({
             style={{
               padding: '12px',
               fontSize: '14px',
-              background: '#28a745',
+              background: '#059669',
               color: 'white',
               border: 'none',
               borderRadius: '8px',
@@ -252,7 +256,8 @@ const QRPaymentScreen: React.FC<QRPaymentScreenProps> = ({
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '5px'
+              gap: '5px',
+              boxShadow: '0 2px 4px rgba(5, 150, 105, 0.3)'
             }}
           >
             ✅ Payment Done

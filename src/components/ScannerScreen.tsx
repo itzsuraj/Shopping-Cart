@@ -66,7 +66,7 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%',
+        height: '100dvh',
         background: 'white',
         display: 'flex',
         flexDirection: 'column',
@@ -77,13 +77,14 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
     >
       {/* Header */}
       <div style={{
-        background: 'rgba(0,0,0,0.9)',
+        background: '#1a5f3c',
         color: 'white',
         padding: '15px 20px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        zIndex: 10
+        zIndex: 10,
+        boxShadow: '0 2px 4px rgba(26, 95, 60, 0.2)'
       }}>
         <button 
           onClick={onBack}
@@ -118,14 +119,15 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
         
         {/* Title Section */}
         <div style={{
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          background: '#1a5f3c',
           color: 'white',
           padding: '25px',
           borderRadius: '15px',
           textAlign: 'center',
           marginBottom: '30px',
           maxWidth: '500px',
-          width: '100%'
+          width: '100%',
+          boxShadow: '0 4px 12px rgba(26, 95, 60, 0.3)'
         }}>
           <div style={{ fontSize: '32px', marginBottom: '10px' }}>🏪</div>
           <h1 style={{ margin: '0 0 10px 0', fontSize: '24px' }}>SmartMart Payment</h1>
@@ -137,7 +139,7 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
         {/* Merchant QR Code */}
         <div style={{
           background: 'white',
-          border: '2px solid #e9ecef',
+          border: '2px solid #e2e8f0',
           borderRadius: '15px',
           padding: '30px',
           marginBottom: '25px',
@@ -147,8 +149,8 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
           boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
         }}>
           <div style={{
-            background: '#f8f9fa',
-            border: '2px dashed #dee2e6',
+            background: '#f8fafc',
+            border: '2px dashed #e2e8f0',
             borderRadius: '10px',
             padding: '20px',
             marginBottom: '20px'
@@ -161,15 +163,15 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
                   width: '200px', 
                   height: '200px',
                   borderRadius: '10px',
-                  border: '2px solid #28a745'
+                  border: '2px solid #1a5f3c'
                 }} 
               />
             ) : (
               <div style={{
                 width: '200px',
                 height: '200px',
-                background: '#f8f9fa',
-                border: '2px dashed #dee2e6',
+                background: '#f8fafc',
+                border: '2px dashed #e2e8f0',
                 borderRadius: '10px',
                 display: 'flex',
                 alignItems: 'center',
@@ -179,27 +181,27 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
                 <div style={{ fontSize: '48px' }}>⏳</div>
               </div>
             )}
-            <h3 style={{ margin: '15px 0 10px 0', color: '#2c3e50' }}>
+            <h3 style={{ margin: '15px 0 10px 0', color: '#1e293b' }}>
               SmartMart Payment QR
             </h3>
-            <p style={{ margin: 0, color: '#6c757d', fontSize: '14px' }}>
-              Amount: €{(total * 1.1).toFixed(2)} • UPI: smartmart@pay
+            <p style={{ margin: 0, color: '#64748b', fontSize: '14px' }}>
+              Amount: ₹{(total * 1.1).toFixed(2)} • UPI: smartmart@pay
             </p>
           </div>
           
           <div style={{
-            background: '#e3f2fd',
-            border: '1px solid #bbdefb',
+            background: '#f0f9ff',
+            border: '1px solid #bae6fd',
             borderRadius: '8px',
             padding: '15px',
             marginBottom: '20px'
           }}>
-            <p style={{ margin: 0, color: '#1976d2', fontSize: '14px' }}>
+            <p style={{ margin: 0, color: '#0369a1', fontSize: '14px' }}>
               <strong>Test Instructions:</strong>
             </p>
             <ul style={{ 
               margin: '10px 0 0 0', 
-              color: '#1976d2', 
+              color: '#0369a1', 
               fontSize: '13px',
               textAlign: 'left',
               paddingLeft: '20px'
@@ -214,12 +216,14 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
         
         {/* Payment Details */}
         <div style={{
-          background: '#f8f9fa',
+          background: '#f8fafc',
           borderRadius: '15px',
           padding: '20px',
           marginBottom: '25px',
           maxWidth: '400px',
-          width: '100%'
+          width: '100%',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          border: '1px solid #e2e8f0'
         }}>
           <div style={{
             display: 'flex',
@@ -227,9 +231,9 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
             alignItems: 'center',
             marginBottom: '10px'
           }}>
-            <span style={{ color: '#6c757d', fontSize: '14px' }}>Amount:</span>
-            <span style={{ color: '#2c3e50', fontSize: '18px', fontWeight: 'bold' }}>
-              €{(total * 1.1).toFixed(2)}
+            <span style={{ color: '#64748b', fontSize: '14px' }}>Amount:</span>
+            <span style={{ color: '#1e293b', fontSize: '18px', fontWeight: 'bold' }}>
+                              ₹{(total * 1.1).toFixed(2)}
             </span>
           </div>
           <div style={{
@@ -238,8 +242,8 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
             alignItems: 'center',
             marginBottom: '10px'
           }}>
-            <span style={{ color: '#6c757d', fontSize: '14px' }}>Merchant:</span>
-            <span style={{ color: '#2c3e50', fontSize: '14px' }}>
+            <span style={{ color: '#64748b', fontSize: '14px' }}>Merchant:</span>
+            <span style={{ color: '#1e293b', fontSize: '14px' }}>
               SmartMart Store
             </span>
           </div>
@@ -248,8 +252,8 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
             justifyContent: 'space-between',
             alignItems: 'center'
           }}>
-            <span style={{ color: '#6c757d', fontSize: '14px' }}>UPI ID:</span>
-            <span style={{ color: '#2c3e50', fontSize: '14px' }}>
+            <span style={{ color: '#64748b', fontSize: '14px' }}>UPI ID:</span>
+            <span style={{ color: '#1e293b', fontSize: '14px' }}>
               smartmart@pay
             </span>
           </div>
@@ -258,10 +262,11 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
       
       {/* Bottom Actions */}
       <div style={{
-        background: 'rgba(0,0,0,0.9)',
+        background: '#1a5f3c',
         padding: '20px',
         display: 'flex',
-        gap: '15px'
+        gap: '15px',
+        boxShadow: '0 -2px 4px rgba(26, 95, 60, 0.2)'
       }}>
         <button 
           onClick={onManualPayment}
@@ -269,7 +274,7 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
             flex: 1,
             padding: '15px',
             fontSize: '16px',
-            background: '#6c757d',
+            background: '#64748b',
             color: 'white',
             border: 'none',
             borderRadius: '10px',
@@ -278,7 +283,8 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '8px'
+            gap: '8px',
+            boxShadow: '0 2px 4px rgba(100, 116, 139, 0.3)'
           }}
         >
           <CreditCard size={16} />
@@ -292,7 +298,7 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
             flex: 1,
             padding: '15px',
             fontSize: '16px',
-            background: isProcessing ? '#6c757d' : '#28a745',
+            background: isProcessing ? '#64748b' : '#059669',
             color: 'white',
             border: 'none',
             borderRadius: '10px',
@@ -301,7 +307,8 @@ const ScannerScreen: React.FC<ScannerScreenProps> = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '8px'
+            gap: '8px',
+            boxShadow: isProcessing ? '0 2px 4px rgba(100, 116, 139, 0.3)' : '0 2px 4px rgba(5, 150, 105, 0.3)'
           }}
         >
           <Smartphone size={16} />

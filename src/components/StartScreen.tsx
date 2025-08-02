@@ -16,23 +16,28 @@ const StartScreen: React.FC<StartScreenProps> = ({ isActive, onStart }) => {
         left: 0,
         width: '100%',
         height: '100%',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        background: 'white',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         opacity: isActive ? 1 : 0,
         transform: isActive ? 'translateX(0)' : 'translateX(-100%)',
+        transition: 'all 0.3s ease-in-out',
         zIndex: 1
       }}
     >
       {/* Logo and Title */}
       <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-        <div style={{ fontSize: '64px', marginBottom: '20px' }}>🛒</div>
+        <div style={{ 
+          fontSize: '64px', 
+          marginBottom: '20px',
+          color: '#1a5f3c'
+        }}>🛒</div>
         <h1 style={{ 
           margin: '0 0 10px 0', 
           fontSize: '32px', 
-          color: 'white',
+          color: '#1a5f3c',
           fontWeight: 'bold'
         }}>
           SmartMart
@@ -40,7 +45,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ isActive, onStart }) => {
         <p style={{ 
           margin: 0, 
           fontSize: '16px', 
-          color: 'rgba(255,255,255,0.9)',
+          color: '#64748b',
           maxWidth: '300px'
         }}>
           Your Smart Shopping Experience
@@ -58,50 +63,56 @@ const StartScreen: React.FC<StartScreenProps> = ({ isActive, onStart }) => {
         padding: '0 20px'
       }}>
         <div style={{
-          background: 'rgba(255,255,255,0.1)',
+          background: '#f8fafc',
           padding: '15px',
           borderRadius: '10px',
           display: 'flex',
           alignItems: 'center',
           gap: '15px',
-          color: 'white'
+          color: '#1e293b',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          border: '1px solid #e2e8f0'
         }}>
           <div style={{ fontSize: '24px' }}>📱</div>
           <div>
-            <h3 style={{ margin: '0 0 5px 0', fontSize: '16px' }}>Scan & Shop</h3>
-            <p style={{ margin: 0, fontSize: '14px', opacity: 0.9 }}>Scan products to add to cart</p>
+            <h3 style={{ margin: '0 0 5px 0', fontSize: '16px', color: '#1a5f3c' }}>Scan & Shop</h3>
+            <p style={{ margin: 0, fontSize: '14px', color: '#64748b' }}>Scan products to add to cart</p>
           </div>
         </div>
         
         <div style={{
-          background: 'rgba(255,255,255,0.1)',
+          background: '#f8fafc',
           padding: '15px',
           borderRadius: '10px',
           display: 'flex',
           alignItems: 'center',
           gap: '15px',
-          color: 'white'
+          color: '#1e293b',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          border: '1px solid #e2e8f0'
         }}>
           <div style={{ fontSize: '24px' }}>💳</div>
           <div>
-            <h3 style={{ margin: '0 0 5px 0', fontSize: '16px' }}>Quick Payment</h3>
-            <p style={{ margin: 0, fontSize: '14px', opacity: 0.9 }}>Pay with UPI or cards</p>
+            <h3 style={{ margin: '0 0 5px 0', fontSize: '16px', color: '#1a5f3c' }}>Quick Payment</h3>
+            <p style={{ margin: 0, fontSize: '14px', color: '#64748b' }}>Pay with UPI or cards</p>
           </div>
         </div>
         
         <div style={{
-          background: 'rgba(255,255,255,0.1)',
+          background: '#f8fafc',
           padding: '15px',
           borderRadius: '10px',
           display: 'flex',
           alignItems: 'center',
           gap: '15px',
-          color: 'white'
+          color: '#1e293b',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+          border: '1px solid #e2e8f0'
         }}>
           <div style={{ fontSize: '24px' }}>⚡</div>
           <div>
-            <h3 style={{ margin: '0 0 5px 0', fontSize: '16px' }}>Fast Checkout</h3>
-            <p style={{ margin: 0, fontSize: '14px', opacity: 0.9 }}>Complete your purchase in seconds</p>
+            <h3 style={{ margin: '0 0 5px 0', fontSize: '16px', color: '#1a5f3c' }}>Fast Checkout</h3>
+            <p style={{ margin: 0, fontSize: '14px', color: '#64748b' }}>Complete your purchase in seconds</p>
           </div>
         </div>
       </div>
@@ -110,8 +121,8 @@ const StartScreen: React.FC<StartScreenProps> = ({ isActive, onStart }) => {
       <button 
         onClick={onStart}
         style={{
-          background: 'white',
-          color: '#667eea',
+          background: '#1a5f3c',
+          color: 'white',
           border: 'none',
           borderRadius: '25px',
           padding: '15px 40px',
@@ -121,14 +132,16 @@ const StartScreen: React.FC<StartScreenProps> = ({ isActive, onStart }) => {
           display: 'flex',
           alignItems: 'center',
           gap: '10px',
-          boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
-          transition: 'transform 0.2s'
+          boxShadow: '0 4px 12px rgba(26, 95, 60, 0.3)',
+          transition: 'transform 0.2s, box-shadow 0.2s'
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = 'scale(1.05)'
+          e.currentTarget.style.boxShadow = '0 6px 16px rgba(26, 95, 60, 0.4)'
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = 'scale(1)'
+          e.currentTarget.style.boxShadow = '0 4px 12px rgba(26, 95, 60, 0.3)'
         }}
       >
         <ShoppingCart size={20} />

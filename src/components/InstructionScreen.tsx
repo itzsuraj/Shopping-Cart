@@ -16,7 +16,7 @@ const InstructionScreen: React.FC<InstructionScreenProps> = ({ isActive, onConti
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%',
+        height: '100dvh',
         background: 'white',
         display: 'flex',
         flexDirection: 'column',
@@ -31,7 +31,7 @@ const InstructionScreen: React.FC<InstructionScreenProps> = ({ isActive, onConti
           <ArrowLeft size={20} />
         </button>
         <div className="logo">SmartMart</div>
-        <div></div>
+        <div style={{ width: '40px' }}></div>
       </div>
       
       {/* Content */}
@@ -47,7 +47,7 @@ const InstructionScreen: React.FC<InstructionScreenProps> = ({ isActive, onConti
         {/* Title */}
         <h1 style={{ 
           fontSize: '28px', 
-          color: '#2c3e50', 
+          color: '#1a5f3c', 
           marginBottom: '20px',
           fontWeight: 'bold',
           textAlign: 'center'
@@ -64,13 +64,13 @@ const InstructionScreen: React.FC<InstructionScreenProps> = ({ isActive, onConti
           style={{
             padding: '18px 40px',
             fontSize: '18px',
-            background: '#28a745',
+            background: '#1a5f3c',
             color: 'white',
             border: 'none',
             borderRadius: '50px',
             cursor: 'pointer',
             fontWeight: 'bold',
-            boxShadow: '0 4px 15px rgba(40, 167, 69, 0.3)',
+            boxShadow: '0 4px 15px rgba(26, 95, 60, 0.3)',
             transition: 'all 0.3s ease',
             minWidth: '200px',
             marginBottom: '25px',
@@ -80,13 +80,13 @@ const InstructionScreen: React.FC<InstructionScreenProps> = ({ isActive, onConti
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-2px)'
-            e.currentTarget.style.boxShadow = '0 6px 20px rgba(40, 167, 69, 0.4)'
-            e.currentTarget.style.background = '#218838'
+            e.currentTarget.style.boxShadow = '0 6px 20px rgba(26, 95, 60, 0.4)'
+            e.currentTarget.style.background = '#134a30'
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)'
-            e.currentTarget.style.boxShadow = '0 4px 15px rgba(40, 167, 69, 0.3)'
-            e.currentTarget.style.background = '#28a745'
+            e.currentTarget.style.boxShadow = '0 4px 15px rgba(26, 95, 60, 0.3)'
+            e.currentTarget.style.background = '#1a5f3c'
           }}
         >
           🚀 Start Shopping Now
@@ -104,45 +104,48 @@ const InstructionScreen: React.FC<InstructionScreenProps> = ({ isActive, onConti
           
           {/* Step 1 */}
           <div style={{
-            background: '#f8f9fa',
+            background: '#f8fafc',
             padding: '20px',
             borderRadius: '15px',
-            border: '2px solid #e9ecef',
-            textAlign: 'center'
+            border: '2px solid #e2e8f0',
+            textAlign: 'center',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
           }}>
             <div style={{ fontSize: '40px', marginBottom: '15px' }}>📱</div>
-            <h3 style={{ fontSize: '18px', marginBottom: '10px', color: '#2c3e50' }}>Step 1: Scan Items</h3>
-            <p style={{ color: '#6c757d', lineHeight: '1.4', fontSize: '14px' }}>
+            <h3 style={{ fontSize: '18px', marginBottom: '10px', color: '#1e293b' }}>Step 1: Scan Items</h3>
+            <p style={{ color: '#64748b', lineHeight: '1.4', fontSize: '14px' }}>
               Use the built-in scanner to scan barcodes on items. Each scan adds the item to your cart.
             </p>
           </div>
           
           {/* Step 2 */}
           <div style={{
-            background: '#f8f9fa',
+            background: '#f8fafc',
             padding: '20px',
             borderRadius: '15px',
-            border: '2px solid #e9ecef',
-            textAlign: 'center'
+            border: '2px solid #e2e8f0',
+            textAlign: 'center',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
           }}>
             <div style={{ fontSize: '40px', marginBottom: '15px' }}>🛒</div>
-            <h3 style={{ fontSize: '18px', marginBottom: '10px', color: '#2c3e50' }}>Step 2: Add to Cart</h3>
-            <p style={{ color: '#6c757d', lineHeight: '1.4', fontSize: '14px' }}>
+            <h3 style={{ fontSize: '18px', marginBottom: '10px', color: '#1e293b' }}>Step 2: Add to Cart</h3>
+            <p style={{ color: '#64748b', lineHeight: '1.4', fontSize: '14px' }}>
               Place scanned items in the cart basket. The system tracks your items automatically.
             </p>
           </div>
           
           {/* Step 3 */}
           <div style={{
-            background: '#f8f9fa',
+            background: '#f8fafc',
             padding: '20px',
             borderRadius: '15px',
-            border: '2px solid #e9ecef',
-            textAlign: 'center'
+            border: '2px solid #e2e8f0',
+            textAlign: 'center',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
           }}>
             <div style={{ fontSize: '40px', marginBottom: '15px' }}>💳</div>
-            <h3 style={{ fontSize: '18px', marginBottom: '10px', color: '#2c3e50' }}>Step 3: Pay & Go</h3>
-            <p style={{ color: '#6c757d', lineHeight: '1.4', fontSize: '14px' }}>
+            <h3 style={{ fontSize: '18px', marginBottom: '10px', color: '#1e293b' }}>Step 3: Pay & Go</h3>
+            <p style={{ color: '#64748b', lineHeight: '1.4', fontSize: '14px' }}>
               When done, checkout and pay with UPI, cards, or cash. No waiting in lines!
             </p>
           </div>
@@ -156,7 +159,8 @@ const InstructionScreen: React.FC<InstructionScreenProps> = ({ isActive, onConti
           padding: '15px',
           marginBottom: '25px',
           maxWidth: '600px',
-          width: '100%'
+          width: '100%',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '8px' }}>
             <X size={20} color="#856404" />
@@ -171,7 +175,7 @@ const InstructionScreen: React.FC<InstructionScreenProps> = ({ isActive, onConti
         <p style={{ 
           marginTop: '15px', 
           fontSize: '12px', 
-          color: '#6c757d',
+          color: '#64748b',
           textAlign: 'center'
         }}>
           <strong>Note:</strong> The instruction cards below are for reference only. 

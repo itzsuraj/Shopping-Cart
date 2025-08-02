@@ -16,7 +16,7 @@ const FailedScreen: React.FC<FailedScreenProps> = ({ isActive, onRetry, onBackTo
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%',
+        height: '100dvh',
         background: 'white',
         display: 'flex',
         flexDirection: 'column',
@@ -36,7 +36,8 @@ const FailedScreen: React.FC<FailedScreenProps> = ({ isActive, onRetry, onBackTo
         textAlign: 'center',
         boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
         maxWidth: '400px',
-        width: '100%'
+        width: '100%',
+        border: '1px solid #e2e8f0'
       }}>
         {/* Error Icon */}
         <div style={{
@@ -51,14 +52,14 @@ const FailedScreen: React.FC<FailedScreenProps> = ({ isActive, onRetry, onBackTo
         <h1 style={{ 
           margin: '0 0 10px 0', 
           fontSize: '24px', 
-          color: '#dc3545',
+          color: '#dc2626',
           fontWeight: 'bold'
         }}>
           Payment Failed
         </h1>
         <p style={{ 
           margin: '0 0 20px 0', 
-          color: '#6c757d', 
+          color: '#64748b', 
           fontSize: '14px',
           lineHeight: '1.5'
         }}>
@@ -67,16 +68,18 @@ const FailedScreen: React.FC<FailedScreenProps> = ({ isActive, onRetry, onBackTo
         
         {/* Error Details */}
         <div style={{
-          background: '#f8f9fa',
+          background: '#f8fafc',
           borderRadius: '10px',
           padding: '15px',
           marginBottom: '20px',
-          textAlign: 'left'
+          textAlign: 'left',
+          border: '1px solid #e2e8f0',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
         }}>
-          <h3 style={{ margin: '0 0 10px 0', fontSize: '16px', color: '#2c3e50' }}>
+          <h3 style={{ margin: '0 0 10px 0', fontSize: '16px', color: '#1e293b' }}>
             Error Details
           </h3>
-          <div style={{ fontSize: '12px', color: '#6c757d' }}>
+          <div style={{ fontSize: '12px', color: '#64748b' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '5px' }}>
               <span>Error Code:</span>
               <span>PAY-{Date.now().toString().slice(-4)}</span>
@@ -91,7 +94,7 @@ const FailedScreen: React.FC<FailedScreenProps> = ({ isActive, onRetry, onBackTo
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <span>Status:</span>
-              <span style={{ color: '#dc3545', fontWeight: 'bold' }}>✗ Failed</span>
+              <span style={{ color: '#dc2626', fontWeight: 'bold' }}>✗ Failed</span>
             </div>
           </div>
         </div>
@@ -103,7 +106,8 @@ const FailedScreen: React.FC<FailedScreenProps> = ({ isActive, onRetry, onBackTo
           borderRadius: '8px',
           padding: '12px',
           marginBottom: '20px',
-          textAlign: 'left'
+          textAlign: 'left',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
         }}>
           <p style={{ margin: '0 0 8px 0', color: '#856404', fontSize: '12px', fontWeight: 'bold' }}>
             💡 Need Help?
@@ -131,7 +135,7 @@ const FailedScreen: React.FC<FailedScreenProps> = ({ isActive, onRetry, onBackTo
             style={{
               padding: '12px',
               fontSize: '14px',
-              background: '#6c757d',
+              background: '#64748b',
               color: 'white',
               border: 'none',
               borderRadius: '8px',
@@ -140,7 +144,8 @@ const FailedScreen: React.FC<FailedScreenProps> = ({ isActive, onRetry, onBackTo
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '5px'
+              gap: '5px',
+              boxShadow: '0 2px 4px rgba(100, 116, 139, 0.3)'
             }}
           >
             <ArrowLeft size={16} />
@@ -152,7 +157,7 @@ const FailedScreen: React.FC<FailedScreenProps> = ({ isActive, onRetry, onBackTo
             style={{
               padding: '12px',
               fontSize: '14px',
-              background: '#007bff',
+              background: '#1a5f3c',
               color: 'white',
               border: 'none',
               borderRadius: '8px',
@@ -161,7 +166,8 @@ const FailedScreen: React.FC<FailedScreenProps> = ({ isActive, onRetry, onBackTo
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '5px'
+              gap: '5px',
+              boxShadow: '0 2px 4px rgba(26, 95, 60, 0.3)'
             }}
           >
             <RefreshCw size={16} />

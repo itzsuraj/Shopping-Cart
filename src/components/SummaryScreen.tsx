@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowLeft, Receipt, ShoppingBag } from 'lucide-react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { CartItem } from '../types'
 
 interface SummaryScreenProps {
@@ -17,10 +17,6 @@ const SummaryScreen: React.FC<SummaryScreenProps> = ({
   onBack, 
   onProceed 
 }) => {
-  const getItemCount = () => {
-    return cart.reduce((count, item) => count + item.quantity, 0)
-  }
-
   return (
     <div 
       className={`screen ${isActive ? 'active' : ''}`}
@@ -35,7 +31,8 @@ const SummaryScreen: React.FC<SummaryScreenProps> = ({
         flexDirection: 'column',
         opacity: isActive ? 1 : 0,
         transform: isActive ? 'translateX(0)' : 'translateX(100%)',
-        zIndex: 1
+        transition: 'all 0.3s ease-in-out',
+        zIndex: 10
       }}
     >
       {/* Header */}
@@ -43,187 +40,196 @@ const SummaryScreen: React.FC<SummaryScreenProps> = ({
         <button className="back-btn" onClick={onBack}>
           <ArrowLeft size={20} />
         </button>
-        <div className="logo">SmartMart</div>
-        <div></div>
+        <div className="logo">Order Summary</div>
+        <div style={{ width: '40px' }}></div>
       </div>
       
-      {/* Content */}
-      <div style={{ 
-        flex: 1, 
-        display: 'flex', 
-        flexDirection: 'column',
-        padding: '15px'
-      }}>
-        
-        {/* Title Section */}
-        <div style={{
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          color: 'white',
-          padding: '20px',
-          borderRadius: '12px',
-          textAlign: 'center',
-          marginBottom: '15px'
+      {/* Main Content */}
+      <div className="content">
+        <h2 style={{
+          margin: '0 0 32px 0',
+          fontSize: '24px',
+          color: '#1a5f3c',
+          fontWeight: '600'
         }}>
-          <div style={{ fontSize: '24px', marginBottom: '8px' }}>🧾</div>
-          <h2 style={{ margin: '0 0 8px 0', fontSize: '18px' }}>Order Summary</h2>
-          <p style={{ margin: 0, opacity: 0.9, fontSize: '12px' }}>
-            {getItemCount()} items • Review your order
-          </p>
-        </div>
+          Review Your Order
+        </h2>
         
-        {/* Items List - Compact */}
+        {/* Items Summary */}
         <div style={{
-          background: '#f8f9fa',
-          borderRadius: '12px',
-          padding: '15px',
-          marginBottom: '15px',
-          flex: 1,
-          overflowY: 'auto'
+          width: '100%',
+          maxWidth: '600px',
+          margin: '0 auto 32px auto'
         }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            marginBottom: '12px',
-            color: '#2c3e50'
-          }}>
-            <ShoppingBag size={16} />
-            <h3 style={{ margin: 0, fontSize: '16px' }}>Your Items</h3>
-          </div>
-          
           {cart.map((item) => (
             <div key={item.id} style={{
-              background: 'white',
-              padding: '10px',
-              borderRadius: '8px',
-              marginBottom: '8px',
-              border: '1px solid #e9ecef',
               display: 'flex',
               justifyContent: 'space-between',
-              alignItems: 'center'
+              alignItems: 'center',
+              padding: '16px',
+              borderBottom: '1px solid #e2e8f0',
+              background: 'white',
+              borderRadius: '8px',
+              marginBottom: '12px',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <div style={{ fontSize: '20px' }}>{item.image}</div>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '16px'
+              }}>
+                <div style={{ fontSize: '24px' }}>{item.image}</div>
                 <div>
-                  <h4 style={{ margin: '0 0 3px 0', color: '#2c3e50', fontSize: '14px' }}>
+                  <h4 style={{
+                    margin: '0 0 4px 0',
+                    color: '#1e293b'
+                  }}>
                     {item.name}
                   </h4>
-                  <p style={{ margin: 0, color: '#6c757d', fontSize: '12px' }}>
-                    Qty: {item.quantity}
+                  <p style={{
+                    margin: 0,
+                    color: '#64748b',
+                    fontSize: '14px'
+                  }}>
+                    Quantity: {item.quantity}
                   </p>
                 </div>
               </div>
               <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#2c3e50' }}>
+                <div style={{
+                  fontSize: '18px',
+                  fontWeight: 'bold',
+                  color: '#1e293b'
+                }}>
                   ₹{(item.price * item.quantity).toFixed(2)}
                 </div>
-                <p style={{ margin: '2px 0 0 0', color: '#6c757d', fontSize: '10px' }}>
+                <div style={{
+                  fontSize: '14px',
+                  color: '#64748b'
+                }}>
                   ₹{item.price.toFixed(2)} each
-                </p>
+                </div>
               </div>
             </div>
           ))}
         </div>
         
-        {/* Total Section - Compact */}
+        {/* Total Section */}
         <div style={{
-          background: '#2c3e50',
-          color: 'white',
-          padding: '15px',
-          borderRadius: '12px',
-          marginBottom: '15px'
+          width: '100%',
+          maxWidth: '600px',
+          margin: '0 auto 32px auto',
+          padding: '24px',
+          background: '#f8fafc',
+          borderRadius: '8px',
+          border: '1px solid #e2e8f0'
         }}>
           <div style={{
             display: 'flex',
+            justifyContent: 'space-between',
             alignItems: 'center',
-            gap: '8px',
-            marginBottom: '10px'
+            marginBottom: '12px'
           }}>
-            <Receipt size={16} />
-            <h3 style={{ margin: 0, fontSize: '16px' }}>Order Total</h3>
+            <span style={{ color: '#64748b' }}>Subtotal:</span>
+            <span style={{ fontWeight: '600', color: '#1e293b' }}>₹{total.toFixed(2)}</span>
           </div>
-          
-          <div style={{ 
-            display: 'flex', 
-            justifyContent: 'space-between', 
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
             alignItems: 'center',
-            marginBottom: '5px'
+            marginBottom: '16px'
           }}>
-            <span style={{ fontSize: '12px' }}>Subtotal:</span>
-            <span style={{ fontSize: '14px', fontWeight: 'bold' }}>
-              ₹{total.toFixed(2)}
-            </span>
+            <span style={{ color: '#64748b' }}>Tax (18%):</span>
+            <span style={{ fontWeight: '600', color: '#1e293b' }}>₹{(total * 0.18).toFixed(2)}</span>
           </div>
-          <div style={{ 
-            display: 'flex', 
-            justifyContent: 'space-between', 
-            alignItems: 'center',
-            marginBottom: '5px'
+          <div style={{
+            borderTop: '2px solid #e2e8f0',
+            paddingTop: '16px',
+            marginTop: '16px'
           }}>
-            <span style={{ fontSize: '12px' }}>Tax (18%):</span>
-            <span style={{ fontSize: '14px', fontWeight: 'bold' }}>
-              ₹{(total * 0.18).toFixed(2)}
-            </span>
-          </div>
-          <div style={{ 
-            display: 'flex', 
-            justifyContent: 'space-between', 
-            alignItems: 'center',
-            borderTop: '1px solid rgba(255,255,255,0.3)',
-            paddingTop: '8px',
-            marginTop: '8px'
-          }}>
-            <span style={{ fontSize: '14px', fontWeight: 'bold' }}>Total:</span>
-            <span style={{ fontSize: '16px', fontWeight: 'bold' }}>
-              ₹{(total * 1.18).toFixed(2)}
-            </span>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center'
+            }}>
+              <span style={{
+                fontSize: '20px',
+                fontWeight: 'bold',
+                color: '#1a5f3c'
+              }}>Total:</span>
+              <span style={{
+                fontSize: '20px',
+                fontWeight: 'bold',
+                color: '#1a5f3c'
+              }}>₹{(total * 1.18).toFixed(2)}</span>
+            </div>
           </div>
         </div>
         
         {/* Action Buttons */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: '1fr 1fr',
-          gap: '10px'
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+          maxWidth: '600px',
+          margin: '0 auto'
         }}>
           <button 
             onClick={onBack}
             style={{
-              padding: '12px',
-              fontSize: '14px',
-              background: '#6c757d',
-              color: 'white',
-              border: 'none',
+              background: 'white',
+              color: '#1a5f3c',
+              border: '2px solid #1a5f3c',
+              padding: '12px 24px',
               borderRadius: '8px',
-              cursor: 'pointer',
-              fontWeight: 'bold',
+              fontWeight: '600',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '5px'
+              gap: '8px',
+              cursor: 'pointer',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+              transition: 'all 0.2s'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = '#f0f9ff'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'white'
             }}
           >
-            ← Back to Cart
+            <ArrowLeft size={16} />
+            Back to Cart
           </button>
           
           <button 
             onClick={onProceed}
             style={{
-              padding: '12px',
-              fontSize: '14px',
-              background: '#28a745',
+              background: '#1a5f3c',
               color: 'white',
-              border: 'none',
+              padding: '12px 24px',
               borderRadius: '8px',
-              cursor: 'pointer',
-              fontWeight: 'bold',
+              fontWeight: '600',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '5px'
+              gap: '8px',
+              cursor: 'pointer',
+              border: 'none',
+              boxShadow: '0 4px 12px rgba(26, 95, 60, 0.3)',
+              transition: 'all 0.2s'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = '#059669'
+              e.currentTarget.style.boxShadow = '0 6px 16px rgba(26, 95, 60, 0.4)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = '#1a5f3c'
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(26, 95, 60, 0.3)'
             }}
           >
-            💳 Proceed to Payment
+            Proceed to Payment
+            <ArrowRight size={16} />
           </button>
         </div>
       </div>

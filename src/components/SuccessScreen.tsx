@@ -15,7 +15,7 @@ const SuccessScreen: React.FC<SuccessScreenProps> = ({ isActive, onDone }) => {
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%',
+        height: '100dvh',
         background: 'white',
         display: 'flex',
         flexDirection: 'column',
@@ -35,7 +35,8 @@ const SuccessScreen: React.FC<SuccessScreenProps> = ({ isActive, onDone }) => {
         textAlign: 'center',
         boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
         maxWidth: '400px',
-        width: '100%'
+        width: '100%',
+        border: '1px solid #e2e8f0'
       }}>
         {/* Success Icon */}
         <div style={{
@@ -50,14 +51,14 @@ const SuccessScreen: React.FC<SuccessScreenProps> = ({ isActive, onDone }) => {
         <h1 style={{ 
           margin: '0 0 10px 0', 
           fontSize: '24px', 
-          color: '#28a745',
+          color: '#059669',
           fontWeight: 'bold'
         }}>
           Payment Successful!
         </h1>
         <p style={{ 
           margin: '0 0 20px 0', 
-          color: '#6c757d', 
+          color: '#64748b', 
           fontSize: '14px',
           lineHeight: '1.5'
         }}>
@@ -66,16 +67,18 @@ const SuccessScreen: React.FC<SuccessScreenProps> = ({ isActive, onDone }) => {
         
         {/* Transaction Details */}
         <div style={{
-          background: '#f8f9fa',
+          background: '#f8fafc',
           borderRadius: '10px',
           padding: '15px',
           marginBottom: '20px',
-          textAlign: 'left'
+          textAlign: 'left',
+          border: '1px solid #e2e8f0',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
         }}>
-          <h3 style={{ margin: '0 0 10px 0', fontSize: '16px', color: '#2c3e50' }}>
+          <h3 style={{ margin: '0 0 10px 0', fontSize: '16px', color: '#1e293b' }}>
             Transaction Details
           </h3>
-          <div style={{ fontSize: '12px', color: '#6c757d' }}>
+          <div style={{ fontSize: '12px', color: '#64748b' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '5px' }}>
               <span>Transaction ID:</span>
               <span>#SM{Date.now().toString().slice(-6)}</span>
@@ -90,7 +93,7 @@ const SuccessScreen: React.FC<SuccessScreenProps> = ({ isActive, onDone }) => {
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <span>Status:</span>
-              <span style={{ color: '#28a745', fontWeight: 'bold' }}>✓ Completed</span>
+              <span style={{ color: '#059669', fontWeight: 'bold' }}>✓ Completed</span>
             </div>
           </div>
         </div>
@@ -99,7 +102,7 @@ const SuccessScreen: React.FC<SuccessScreenProps> = ({ isActive, onDone }) => {
         <button 
           onClick={onDone}
           style={{
-            background: '#28a745',
+            background: '#1a5f3c',
             color: 'white',
             border: 'none',
             borderRadius: '25px',
@@ -111,13 +114,16 @@ const SuccessScreen: React.FC<SuccessScreenProps> = ({ isActive, onDone }) => {
             alignItems: 'center',
             gap: '8px',
             margin: '0 auto',
-            transition: 'transform 0.2s'
+            transition: 'transform 0.2s',
+            boxShadow: '0 4px 12px rgba(26, 95, 60, 0.3)'
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'scale(1.05)'
+            e.currentTarget.style.boxShadow = '0 6px 16px rgba(26, 95, 60, 0.4)'
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'scale(1)'
+            e.currentTarget.style.boxShadow = '0 4px 12px rgba(26, 95, 60, 0.3)'
           }}
         >
           <Home size={18} />
