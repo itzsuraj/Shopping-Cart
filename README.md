@@ -1,202 +1,117 @@
-# Shopping Cart App
+# Shopping Cart Electron App
 
-A modern self-service shopping cart application built with **Electron**, **React**, and **Vite**.
+A modern shopping cart application built with Electron, React, and TypeScript. This app provides a complete shopping experience with QR code payment integration.
 
-## 🚀 Features
+## Features
 
-- **Modern UI/UX**: Clean, responsive design with smooth transitions
-- **Complete Shopping Flow**: From start to payment completion
-- **QR Code Payment**: Integrated QR code generation for UPI payments
-- **Cart Management**: Add/remove items with real-time updates
-- **Payment Processing**: Simulated payment processing with success/failure states
-- **Cross-platform**: Runs on Windows, macOS, and Linux
+- 🛒 **Shopping Cart Management**: Add, remove, and manage items
+- 💳 **Multiple Payment Options**: UPI, QR Code, and Card payments
+- 📱 **QR Code Integration**: Generate and scan QR codes for payments
+- 🎨 **Modern UI**: Clean and responsive design
+- ⚡ **Electron Desktop App**: Cross-platform desktop application
 
-## 📱 Screens
+## Screenshots
 
-1. **Start Shopping**: Welcome screen with app branding
-2. **Instructions**: Clear guidance for users on how to use the system
-3. **Live Cart**: Real-time cart management with add/remove functionality
-4. **Cart Summary**: Detailed breakdown of items and total
-5. **Payment Options**: Choose between UPI and Card payment methods
-6. **QR Payment**: QR code generation for UPI payments
-7. **Payment Result**: Success or failure feedback
+The app includes multiple screens:
+- Start Screen
+- Cart Screen
+- Summary Screen
+- Payment Options
+- QR Scanner
+- Success/Failed Screens
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Electron**: Cross-platform desktop application
-- **React 18**: Modern UI framework with TypeScript
-- **Vite**: Fast build tool and dev server
-- **Lucide React**: Beautiful icons
-- **QRCode**: QR code generation
-- **TypeScript**: Type safety
+- **Frontend**: React 18, TypeScript
+- **Desktop**: Electron
+- **Build Tool**: Vite
+- **Styling**: CSS3 with modern design
+- **Icons**: Lucide React
 
-## 🚀 Quick Start
+## Getting Started
 
 ### Prerequisites
 
-- Node.js 16+ 
+- Node.js (v16 or higher)
 - npm or yarn
 
 ### Installation
 
-1. **Clone the repository**
+1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
-   cd Shopping-cart
+   git clone https://github.com/itzsuraj/Shopping-Cart.git
+   cd Shopping-Cart
    ```
 
-2. **Install dependencies**
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-3. **Run in development mode**
+3. **Run the development server**:
    ```bash
-   npm run electron:dev
+   npm run dev
    ```
 
-4. **Build for production**
+4. **Build for production**:
    ```bash
+   npm run build
    npm run electron:build
    ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-Shopping-cart/
-├── electron/
-│   ├── main.ts              # Main Electron process
-│   └── preload.ts           # Secure IPC bridge
+Shopping-Cart/
 ├── src/
 │   ├── components/          # React components
-│   │   ├── TitleBar.tsx
-│   │   ├── StartScreen.tsx
-│   │   ├── InstructionScreen.tsx
 │   │   ├── CartScreen.tsx
-│   │   ├── SummaryScreen.tsx
+│   │   ├── FailedScreen.tsx
+│   │   ├── InstructionScreen.tsx
 │   │   ├── PaymentOptionsScreen.tsx
 │   │   ├── QRPaymentScreen.tsx
+│   │   ├── ScannerScreen.tsx
+│   │   ├── StartScreen.tsx
 │   │   ├── SuccessScreen.tsx
-│   │   └── FailedScreen.tsx
-│   ├── types.ts             # TypeScript definitions
-│   ├── App.tsx              # Main React app
-│   ├── main.tsx             # React entry point
-│   └── index.css            # Styling
-├── package.json             # Dependencies & scripts
-├── vite.config.ts           # Vite configuration
-└── tsconfig.json            # TypeScript config
+│   │   ├── SummaryScreen.tsx
+│   │   └── TitleBar.tsx
+│   ├── App.tsx             # Main app component
+│   ├── main.tsx            # Entry point
+│   └── types.ts            # TypeScript types
+├── electron/               # Electron main process
+├── dist/                   # Built files
+└── package.json
 ```
 
-## 🎯 Key Features
+## Available Scripts
 
-### Cart Management
-- Add random items to cart for demonstration
-- Remove items from cart
-- Real-time total calculation
-- Quantity tracking for duplicate items
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run electron:dev` - Start Electron in development
+- `npm run electron:build` - Build Electron app
+- `npm run preview` - Preview production build
 
-### Payment Processing
-- QR code generation for UPI payments
-- Simulated payment processing
-- Success/failure handling
-- Retry functionality
-
-### UI/UX
-- Smooth screen transitions
-- Responsive design
-- Modern button interactions
-- Clear visual feedback
-
-## 🔧 Development
-
-### Available Scripts
-
-- `npm run dev` - Start Vite dev server
-- `npm run electron:dev` - Start Electron with dev server
-- `npm run build` - Build React app
-- `npm run electron:build` - Build for distribution
-- `npm run dist` - Create distributable packages
-
-### Customization
-
-#### Adding Products
-Edit the `sampleProducts` array in `src/App.tsx`:
-
-```typescript
-const sampleProducts = [
-  { id: 1, name: 'Your Product', price: 10.00 },
-  // Add more products...
-]
-```
-
-#### Styling
-Modify `src/index.css` to customize:
-- Colors and themes
-- Layout and spacing
-- Animations and transitions
-
-#### Payment Integration
-Replace the simulated payment processing in `electron/main.ts` with real payment gateway integration.
-
-## 🚀 Building for Distribution
-
-### Windows
-```bash
-npm run electron:build
-```
-
-### macOS
-```bash
-npm run electron:build
-```
-
-### Linux
-```bash
-npm run electron:build
-```
-
-## 🔒 Security
-
-- Context isolation enabled
-- Preload scripts for secure IPC
-- No direct nodeIntegration
-- Type-safe API communication
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **Dependencies not found**
-   ```bash
-   npm install
-   ```
-
-2. **Permission errors on Linux**
-   ```bash
-   chmod +x node_modules/.bin/electron
-   ```
-
-3. **Build errors**
-   ```bash
-   npm run build --verbose
-   ```
-
-4. **Electron not starting**
-   ```bash
-   npm run electron:dev
-   ```
-
-## 📄 License
-
-MIT License - feel free to use this project for your own applications.
-
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Author
+
+**Suraj Pandey**
+- GitHub: [@itzsuraj](https://github.com/itzsuraj)
+
+## Support
+
+If you have any questions or need help, please open an issue on GitHub.
 
 ---
 
-**Note**: This is a demonstration application. For production use, implement proper security measures, real payment processing, and data validation. 
+⭐ **Star this repository if you find it helpful!** 
