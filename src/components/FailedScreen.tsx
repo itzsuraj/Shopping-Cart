@@ -1,5 +1,5 @@
 import React from 'react'
-import { XCircle, RefreshCw, ArrowLeft } from 'lucide-react'
+import { RefreshCw, ArrowLeft } from 'lucide-react'
 
 interface FailedScreenProps {
   isActive: boolean

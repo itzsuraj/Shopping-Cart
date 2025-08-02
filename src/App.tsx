@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import TitleBar from './components/TitleBar'
 import StartScreen from './components/StartScreen'
 import CartScreen from './components/CartScreen'
@@ -110,6 +110,7 @@ function App() {
           total={getTotal()}
           onBack={() => navigateTo('payment-options')}
           onScanSuccess={() => navigateTo('success')}
+          onManualPayment={() => navigateTo('qr-payment')}
         />
         
         <QRPaymentScreen

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowLeft, Barcode, ShoppingCart, X } from 'lucide-react'
+import { ArrowLeft, X } from 'lucide-react'
 
 interface InstructionScreenProps {
   isActive: boolean

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ArrowLeft, QrCode, Smartphone, CreditCard } from 'lucide-react'
+import { ArrowLeft, CreditCard, Smartphone } from 'lucide-react'
 
 interface ScannerScreenProps {
   isActive: boolean

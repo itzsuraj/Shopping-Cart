@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ArrowLeft, QrCode, Smartphone, Clock } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { CartItem } from '../types'
 
 interface QRPaymentScreenProps {

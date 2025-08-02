@@ -1,5 +1,5 @@
 import React from 'react'
-import { CheckCircle, Home } from 'lucide-react'
+import { Home } from 'lucide-react'
 
 interface SuccessScreenProps {
   isActive: boolean
